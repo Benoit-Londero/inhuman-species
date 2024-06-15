@@ -1,0 +1,56 @@
+#content-contact{
+    background-color: #000;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        padding-left: 150px;
+        margin:auto;
+        width: 60vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+       
+
+        h1{
+            color: $gold;
+        }
+
+        span{
+            width: 100%;
+        }
+
+        form{
+            input,
+            textarea{
+                border: 1px solid $gold;
+                background: none;
+                width: calc( 100% - 40px);
+                padding: 10px 20px;
+                margin-bottom: 20px;
+                color: #fff;
+                outline: none;
+                width: 100% ;
+
+                &:focus{
+                    border-width: 2px;
+                }
+            }
+
+            input[type="submit"]{
+                background-color: $gold;
+                color: #fff;
+                padding: 10px 30px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                width: fit-content;
+            }
+        }
+    }
+    
+}

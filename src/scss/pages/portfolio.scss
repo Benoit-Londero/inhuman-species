@@ -1,0 +1,79 @@
+.portfolio{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .swiper{
+        height: 100%;
+        width: 100%;
+
+        .swiper-wrapper{
+            transition-timing-function: ease-in-out;
+            transition-duration: 600ms;
+
+            .swiper-slide{
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+
+                .description{
+                    position: absolute;
+                    left: 200px;
+                    top: 60vh;
+                    width: 550px;
+                    color: $light;
+
+                    h2{
+                        font-weight: 200;
+                        color: $gold;
+                    }
+
+                    p{
+                        font-size: .8rem;
+                        line-height: 1.6rem;
+                        font-weight: 100;
+                    }
+
+                    
+                }
+
+                .block-img{
+                    height: 100vh;
+                    width: 100vw;
+                }
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev{
+            width: 50px;
+            height: 50px;
+            border: 1px solid $gold;
+            position: absolute;
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+            left: auto;
+
+            &::after{
+                color: $light;
+                font-size: .6rem;
+                //content: '▼'
+            }
+        }
+
+        .swiper-button-prev{
+            right: 70px;
+
+            &::after{
+                color: $light;
+                font-size: .6rem;
+                //content: '▲'
+            }
+        }
+    }
+}
+
+

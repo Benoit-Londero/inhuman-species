@@ -1,0 +1,21 @@
+#content-contact{
+    .columns{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+
+        .col-g,
+        .col-d{
+            width: 50%;
+        }
+
+        .col-d{
+            p{
+                font-size: 1rem;
+                font-weight: 100;
+                line-height: 1.8rem;
+            }
+        }
+    }
+}
