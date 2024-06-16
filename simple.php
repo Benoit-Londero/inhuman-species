@@ -23,11 +23,22 @@ $isGalerie = get_field('isGalerie');
             <?php if($isGalerie):
                 $galerie = get_field('galerie');
 
-                foreach($galerie as $g):?>
-                    <div class="block-ig from-bottom">
-                        <img src="<?php echo $g['url'];?>" alt="<?php echo $g['name'];?>" />
-                    </div>
-                <?php endforeach;
+                echo 
+                '<div class="swiper swiper-project">
+                    <div class="swiper-wrapper">';
+
+                    foreach($galerie as $g):?>
+                        <div class="swiper-slide">
+                            <a data-fslightbox href="<?php echo $g['url'];?>">
+                                <div class="block-ig from-bottom">
+                                    <img src="<?php echo $g['url'];?>" alt="<?php echo $g['name'];?>" />
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach;
+
+                echo '</div>
+                </div>';
             
             else : ?>
                 <div class="block-img from-bottom">
