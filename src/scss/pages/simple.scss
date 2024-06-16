@@ -1,3 +1,11 @@
-.swiper-project{
-    height: 70vh;
+.page-template-simple{
+    .container{
+        .cold{
+            height: 100vh;
+
+            .swiper-project{
+                height: 100vh;
+            }
+        }
+    }
 }
