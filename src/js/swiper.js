@@ -25,7 +25,7 @@ const swiper = new Swiper( '.swiper-portfolio', {
 
 const swiper_projet = new Swiper( '.swiper-project', {
     speed: 800,
-    slidesPerView : 3,
+    slidesPerView : 3.5,
     direction: 'vertical',
     loop: true,
     parallax: true,
