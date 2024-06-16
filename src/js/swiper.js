@@ -21,3 +21,18 @@ const swiper = new Swiper( '.swiper-portfolio', {
     //     },
     // },
 });
+
+
+const swiper_projet = new Swiper( '.swiper-project', {
+    speed: 800,
+    slidesPerView : 3,
+    direction: 'vertical',
+    loop: true,
+    parallax: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    
+    grabCursor: true,
+});
