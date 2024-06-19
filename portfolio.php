@@ -1,10 +1,12 @@
 <?php
 /* Template Name: Portfolio */
 
+$bg = get_field('background-slider');
+
 get_header();
 ?>
 
-<div class="portfolio">
+<div class="portfolio" <?php if($bg): ?> style="background-image:url('<?php echo $bg['url'];?>);" <?php endif;?>>
     <div class="swiper">
         <div class="swiper-portfolio">
             <div class="swiper-wrapper">
