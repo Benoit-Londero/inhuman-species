@@ -23,7 +23,7 @@ get_header();
                                 <div class="description from-left" data-swiper-parallax="-300" data-swiper-parallax-duration="300" style="z-index:1000;">
                                     <?php if($desc): echo $desc; endif;?>
 
-                                    <?php if($cta): echo '<a href="'.$cta['url'].'" class="cta from-left" target="_blank">'.$cta['title'].'</a>'; endif;?>
+                                    <?php if($cta): echo '<a href="'.$cta['url'].'" class="cta from-left">'.$cta['title'].'</a>'; endif;?>
                                 </div>
 
                                 <div class="block-img" data-swiper-parallax="0">
