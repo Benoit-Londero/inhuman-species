@@ -7,13 +7,24 @@
      z-index: 11;
      padding-top: 50px;
      background-color: $dark;
-     transform: translateX(0);
+     transform: translateX(100vw);
      transition: all ease-in-out 500ms;
 
      .logo{
           display: flex;
-          width: 150px;
+          width: calc(100vw - 60px) !important;
           justify-content: space-between;
+          align-items: center;
+          margin-left: 30px;
+
+          a{
+               width: 150px;
+          }
+
+          .open_menu{
+               text-decoration: none;
+               text-transform: uppercase;
+          }
      }
 
      #menu-menu-principal-1{
