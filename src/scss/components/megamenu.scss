@@ -1,9 +1,64 @@
 .menu-megamenu{
      width: 100vw;
      height: 100vh;
+     position: fixed;
+     left: 0;
+     top: 0;
+     z-index: 11;
+     padding-top: 50px;
+     background-color: $dark;
+     transform: translateX(0);
+     transition: all ease-in-out 500ms;
 
      .logo{
           margin:auto;
           width: 150px;
      }
+
+     #menu-menu-principal{
+          text-align: left;
+          margin: 0;
+          padding: 0;
+          margin-top: 60px;
+          list-style: none;
+  
+          li{
+              margin-left: 30px;
+  
+              a{
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  color: $light;
+                  letter-spacing: 1px;
+                  font-weight: 100;
+                  font-size: 9rem;
+  
+              }
+          }
+  
+          .current-menu-item{
+              a{
+                  color:$gold;
+              }
+          }
+  
+  
+          li + li {
+              margin-top: 10px;
+          }
+      }
+  
+      .social_network{
+          position: absolute;
+          bottom: 20px;
+          left: 30px;
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+  
+          a{
+              width: 30px;
+              height: 30px;
+          }
+      }
 }
