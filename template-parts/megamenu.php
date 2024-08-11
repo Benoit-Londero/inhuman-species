@@ -7,6 +7,8 @@
             <a href="<?php echo get_home_url();?>">
                 <img src="<?php echo $logo  ['url'];?>" alt="<?php echo $logo['name'];?>"/>
             </a>
+
+            <a href="#!" class="open-menu">x</a>
         </div>
     <?php endif;?>
 
