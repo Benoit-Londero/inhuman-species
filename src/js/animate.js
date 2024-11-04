@@ -78,4 +78,16 @@ $(document).ready(function () {
   swiper.on('transitionEnd', () => {
     inView.check(); // Re-check visibility of elements when slide transition ends
   });
+
+  const sliderContainer = $('#main-content');
+  const imageAfter = $('.image-after');
+
+  sliderContainer.on('mousemove', function(e) {
+    const containerRect = sliderContainer[0].getBoundingClientRect();
+    const cursorX = e.clientX - containerRect.left;
+    const containerWidth = containerRect.width;
+    const percentage = (cursorX / containerWidth) * 100;
+
+    imageAfter.css('clip-path', `inset(0 ${100 - percentage}% 0 0)`);
+  });
 });

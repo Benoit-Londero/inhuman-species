@@ -6,10 +6,12 @@
     width: 200px;
     z-index: 10;
     padding-top: 50px;
+    pointer-events: none;
 
     .logo{
         width: 250px;
         margin: auto;
+        pointer-events: all;
     }
 
     #menu-menu-principal{
@@ -29,6 +31,7 @@
                 letter-spacing: 1px;
                 font-weight: 100;
                 font-size: .7rem;
+                pointer-events: all;
 
             }
         }
