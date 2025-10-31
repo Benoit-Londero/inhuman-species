@@ -1,13 +1,14 @@
 .woocommerce-page {
   .woocommerce-notices-wrapper {
-    border: 1px solid $gold;
-    width: calc(100% - 40px);
-    padding: 20px;
+    width: 100%;
     margin-bottom: 30px;
     position: absolute;
     top: 30px;
 
     .woocommerce-message {
+      border: 1px solid $gold;
+      width: calc(100% - 40px);
+      padding: 20px;
       display: flex;
       align-items: center;
       outline: none;
