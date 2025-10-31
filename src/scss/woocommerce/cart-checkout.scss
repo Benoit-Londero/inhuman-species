@@ -1,0 +1,40 @@
+.woocommerce-checkout,
+.woocommerce-cart {
+  .wp-block-woocommerce-checkout,
+  .wp-block-woocommerce-cart {
+    padding-left: 150px;
+    padding-top: 100px;
+    margin: auto;
+    width: 75vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .wc-block-cart {
+      width: 100%;
+    }
+
+    .wc-block-cart__submit-button {
+      border: 1px solid $gold;
+      background-color: $gold;
+      color: $light;
+      display: block;
+      margin: 30px 0 0 auto;
+      text-decoration: none;
+      padding: 10px 30px;
+      min-width: fit-content;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      font-size: 0.8rem;
+
+      &:hover {
+        background-color: $light;
+        color: $gold;
+      }
+    }
+  }
+}

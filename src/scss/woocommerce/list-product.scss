@@ -1,0 +1,143 @@
+.woocommerce-page {
+  .woocommerce-notices-wrapper {
+    border: 1px solid $gold;
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 30px;
+
+    .woocommerce-message {
+      display: flex;
+      align-items: center;
+      outline: none;
+
+      .button {
+        border: 1px solid $gold;
+        color: $gold;
+        display: inline-block;
+        margin: 0 0 0 auto;
+        text-decoration: none;
+        padding: 10px 30px;
+        width: fit-content;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        font-size: 0.8rem;
+
+        &:hover {
+          background-color: $gold;
+          color: $light;
+        }
+      }
+    }
+
+    .woocommerce-error {
+      list-style: none;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        .button {
+          border: 1px solid $gold;
+          color: $gold;
+          display: inline-block;
+          margin: 0 0 0 auto;
+          text-decoration: none;
+          padding: 10px 30px;
+          min-width: fit-content;
+          width: fit-content;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          position: relative;
+          font-size: 0.8rem;
+
+          &:hover {
+            background-color: $gold;
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-sidebar {
+    #menu-menu-principal {
+      li {
+        a {
+          color: $gold;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  #content-shop {
+    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+      padding-left: 150px;
+      margin: auto;
+      width: 60vw;
+      height: 100vh;
+
+      .products {
+        grid-template-columns: repeat(4, 1fr);
+        display: grid;
+        width: 100%;
+        gap: 40px;
+        padding: 0;
+
+        .product {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: $gold;
+
+            h2 {
+              text-align: center;
+              text-decoration: none;
+              font-size: 1rem;
+              margin: 5px auto;
+            }
+
+            .price {
+              text-align: center;
+              font-size: 0.9rem;
+              margin: 10px;
+            }
+          }
+
+          .add_to_cart_button {
+            border: 1px solid $gold;
+            text-align: center;
+            padding: 5px 20px;
+            width: fit-content;
+            margin: auto;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all ease-in 300ms;
+
+            &:hover {
+              background-color: $gold;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
