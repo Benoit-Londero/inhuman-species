@@ -110,6 +110,8 @@
     a {
       width: 30px;
       height: 30px;
+      pointer-events: all;
+      cursor: pointer;
     }
   }
 }
