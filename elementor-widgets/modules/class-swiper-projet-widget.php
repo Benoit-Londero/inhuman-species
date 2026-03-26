@@ -44,10 +44,9 @@ class Inhuman_Swiper_Projet_Widget extends Widget_Base {
         ?>
 
         <div class="swiper swiper-project">
-            <div class="swiper-wrapper">';
-                <?php if (!empty($settings['list_slider'])) :
-                    foreach ($settings['list_slider'] as $slide):
-                        $img = $slide['img_slider'];
+            <div class="swiper-wrapper">
+                <?php if (!empty($settings['img_slider'])) :
+                    foreach ($settings['img_slider'] as $img):
 
                         ?>
                         <div class="swiper-slide">
