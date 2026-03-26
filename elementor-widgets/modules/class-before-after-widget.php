@@ -21,7 +21,7 @@ class BA_Theme_Before_After_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'general' ]; // Ou ta catégorie custom Elementor
+        return [ 'inhuman-species' ]; // Ou ta catégorie custom Elementor
     }
 
     public function get_style_depends() {

@@ -14,18 +14,15 @@ $photo = get_field('photo_about');
         <div class="col-g">
             <?php if($photo):?>
                 <div class="block-img from-bottom">
-                    <img src="<?php echo $photo['url'];?>" alt="<?php echo $photo['name'];?>" />
+                    <img src="<?= $photo['url'];?>" alt="<?= $photo['name'];?>" />
                 </div>
             <?php endif;?>
         </div>
 
         <div class="col-d from-bottom">
-            <?php if($descr):?>
-                <?php echo $descr;?>
-            <?php endif;?>
+            <?php if($descr): echo $descr; endif;?>
         </div>
     </div>
 </div>
-
 
 <?php get_footer();?>

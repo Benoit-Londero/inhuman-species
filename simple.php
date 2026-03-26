@@ -14,9 +14,7 @@ $isGalerie = get_field('isGalerie');
 <div id="content-contact">
     <div class="container columns">
         <div class="col-g">
-            <?php if($descr):?>
-                <?php echo $descr;?>
-            <?php endif;?>
+            <?php if($descr): echo $descr; endif;?>
         </div>
 
         <div class="col-d from-bottom">
@@ -29,9 +27,9 @@ $isGalerie = get_field('isGalerie');
 
                     foreach($galerie as $g):?>
                         <div class="swiper-slide">
-                            <a data-fslightbox href="<?php echo $g['url'];?>">
+                            <a data-fslightbox href="<?= $g['url'];?>">
                                 <div class="block-ig from-bottom">
-                                    <img src="<?php echo $g['url'];?>" alt="<?php echo $g['name'];?>" />
+                                    <img src="<?= $g['url'];?>" alt="<?= $g['name'];?>" />
                                 </div>
                             </a>
                         </div>
@@ -42,7 +40,7 @@ $isGalerie = get_field('isGalerie');
             
             else : ?>
                 <div class="block-img from-bottom">
-                    <img src="<?php echo $photo['url'];?>" alt="<?php echo $photo['name'];?>" />
+                    <img src="<?= $photo['url'];?>" alt="<?= $photo['name'];?>" />
                 </div>
             <?php endif;?>
         </div>

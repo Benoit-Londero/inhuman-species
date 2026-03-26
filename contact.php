@@ -7,7 +7,7 @@ get_header();?>
 
 <div id="content-contact">
     <div class="container">
-        <h1 class="from-left"><?php echo the_title();?></h1>
+        <h1 class="from-left"><?= the_title();?></h1>
         <?php 
             $form = get_field('formulaire','options');
 
