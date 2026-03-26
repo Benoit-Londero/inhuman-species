@@ -1,0 +1,24 @@
+.ba-slider {
+  position: relative;
+  width: 100%vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .ba-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .ba-before {
+    z-index: 1;
+  }
+
+  .ba-after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0); /* Modifié en JS */
+    transition: clip-path 0.15s ease-out;
+  }
+}

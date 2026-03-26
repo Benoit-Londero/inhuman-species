@@ -41,8 +41,9 @@ function fix_svg() {
           }
           </style>';
 }
-  add_filter( 'upload_mimes', 'cc_mime_types' );
-  add_action( 'admin_head', 'fix_svg' );
+
+add_filter( 'upload_mimes', 'cc_mime_types' );
+add_action( 'admin_head', 'fix_svg' );
 
   function mytheme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
@@ -56,3 +57,24 @@ add_theme_support( 'wc-product-gallery-slider' );
 
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
+/**
+ * Enregistrer les assets et widgets Elementor du thème.
+ */
+function ba_theme_register_elementor_assets() {
+
+    // JS
+    wp_register_script(
+        'ba-before-after',
+        get_stylesheet_directory_uri() . '/elementor-widgets/js/before-after.js',
+        [],
+        '1.0.0',
+        true
+    );
+}
+add_action( 'wp_enqueue_scripts', 'ba_theme_register_elementor_assets' );
+
+add_filter('elementor/theme/register_locations', function ($locations) {
+    return $locations;
+}, 99);
+
+require_once get_template_directory() . '/elementor-widgets/elementor-widgets.php';
