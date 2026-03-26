@@ -23,7 +23,7 @@ class Inhuman_Swiper_Fullscreen_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'inhuman-species' ]; // Ou ta catégorie custom Elementor
+        return [ 'Inhumans Species' ]; // Ou ta catégorie custom Elementor
     }
 
     public function _register_controls() {
