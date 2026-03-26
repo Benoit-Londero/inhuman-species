@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Inhuman_Swiper_Fullscreen_Widget extends Widget_Base {
+class Inhuman_Swiper_Projet_Widget extends Widget_Base {
 
     public function get_name() {
         return 'swiper_projet';
