@@ -1,93 +1,48 @@
-import inView from "in-view";
-import Swiper from "swiper";
+const ANIM_MAP = {
+    'from-left':   'fade-in-left',
+    'from-right':  'fade-in-right',
+    'from-top':    'fade-in-top',
+    'from-bottom': 'fade-in-bottom',
+};
 
-// Initialise Swiper
-const swiper = new Swiper('.swiper-portfolio', {
-  // Swiper options
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+document.addEventListener('DOMContentLoaded', () => {
 
-$(document).ready(function () {
-  //IN-VIEW
-  const elements = [".from-left", ".from-right", ".from-top", ".from-bottom"];
-  elements.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.classList.add("invisible");
-    });
-  });
+    // ── Scroll animations via IntersectionObserver ──────────────────────────
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const el        = entry.target;
+                const animClass = el.dataset.animClass;
 
-  function makeMagic(data, direction) {
-    data.classList.remove("invisible");
-    data.classList.add(direction);
-  }
+                if (entry.isIntersecting) {
+                    el.classList.remove('invisible');
+                    el.classList.add(animClass);
+                } else {
+                    el.classList.add('invisible');
+                    el.classList.remove(animClass);
+                }
+            });
+        },
+        { rootMargin: '0px 0px -150px 0px' }
+    );
 
-  function removeMagic(data, direction) {
-    data.classList.add("invisible");
-    data.classList.remove(direction);
-  }
-
-  inView.offset(150);
-
-  inView(".from-left")
-    .on("enter", (el) => {
-      makeMagic(el, "fade-in-left");
-    })
-    .on("exit", (el) => {
-      removeMagic(el, "fade-in-left");
+    Object.entries(ANIM_MAP).forEach(([selector, animClass]) => {
+        document.querySelectorAll('.' + selector).forEach((el) => {
+            el.dataset.animClass = animClass;
+            el.classList.add('invisible');
+            observer.observe(el);
+        });
     });
 
-  inView(".from-right")
-    .on("enter", (el) => {
-      makeMagic(el, "fade-in-right");
-    })
-    .on("exit", (el) => {
-      removeMagic(el, "fade-in-right");
-    });
+    // ── Front-page before/after hover ───────────────────────────────────────
+    const mainContent = document.getElementById('main-content');
+    const imageAfter  = mainContent?.querySelector('.image-after');
 
-  inView(".from-bottom")
-    .on("enter", (el) => {
-      makeMagic(el, "fade-in-bottom");
-    })
-    .on("exit", (el) => {
-      removeMagic(el, "fade-in-bottom");
-    });
-
-  inView(".from-top")
-    .on("enter", (el) => {
-      makeMagic(el, "fade-in-top");
-    })
-    .on("exit", (el) => {
-      removeMagic(el, "fade-in-top");
-    });
-
-  // Add event listeners for Swiper
-  swiper.on('slideChange', () => {
-    elements.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => {
-        el.classList.add("invisible");
-      });
-    });
-  });
-
-  swiper.on('transitionEnd', () => {
-    inView.check(); // Re-check visibility of elements when slide transition ends
-  });
-
-  const sliderContainer = $('#main-content');
-  const imageAfter = $('.image-after');
-
-  sliderContainer.on('mousemove', function(e) {
-    const containerRect = sliderContainer[0].getBoundingClientRect();
-    const cursorX = e.clientX - containerRect.left;
-    const containerWidth = containerRect.width;
-    const percentage = (cursorX / containerWidth) * 100;
-
-    imageAfter.css('clip-path', `inset(0 ${100 - percentage}% 0 0)`);
-  });
+    if (mainContent && imageAfter) {
+        mainContent.addEventListener('mousemove', (e) => {
+            const rect       = mainContent.getBoundingClientRect();
+            const percentage = ((e.clientX - rect.left) / rect.width) * 100;
+            imageAfter.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        });
+    }
 });

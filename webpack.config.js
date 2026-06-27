@@ -1,18 +1,37 @@
-const path = require("path");
+const path               = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  watch: true,
   entry: "./src/index.js",
-  mode: "production",
+  mode:  isProd ? "production" : "development",
+  devtool: isProd ? false : "source-map",
+
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path:     path.resolve(__dirname, "dist"),
+    clean:    true,
   },
+
+  externals: {
+    // Swiper is loaded via CDN — don't bundle it
+    swiper: "Swiper",
+  },
+
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "main.css" }),
+  ],
+
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
     ],
   },

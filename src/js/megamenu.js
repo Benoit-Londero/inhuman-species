@@ -1,7 +1,10 @@
-$(document).ready(function(){
-     $('.open_menu').on('click',function(){
-          var sidebar = document.getElementById('megamenu');
+document.addEventListener('DOMContentLoaded', () => {
+    const trigger = document.querySelector('.open-menu');
+    const menu    = document.querySelector('.menu-megamenu');
 
-          sidebar.classList.toggle = 'open';
-     });
+    if (!trigger || !menu) return;
+
+    trigger.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
 });

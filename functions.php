@@ -46,6 +46,13 @@ add_action( 'wp_enqueue_scripts', function() {
         '11'
     );
 
+    wp_enqueue_style(
+        'theme-main',
+        get_template_directory_uri() . '/dist/main.css',
+        [],
+        '1.0.0'
+    );
+
     wp_enqueue_script(
         'swiper',
         'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
@@ -57,7 +64,7 @@ add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_script(
         'theme-main',
         get_template_directory_uri() . '/dist/main.js',
-        [ 'jquery', 'swiper' ],
+        [ 'swiper' ],
         '1.0.0',
         true
     );
