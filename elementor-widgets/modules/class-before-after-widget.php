@@ -13,7 +13,7 @@ class BA_Theme_Before_After_Widget extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Before / After', 'ba-theme' );
+        return __( 'Before / After', 'inhuman-species' );
     }
 
     public function get_icon() {
@@ -21,18 +21,14 @@ class BA_Theme_Before_After_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'Inhumans Species' ]; // Ou ta catégorie custom Elementor
-    }
-
-    public function get_style_depends() {
-        return [ 'ba-before-after' ];
+        return [ 'inhuman-species' ];
     }
 
     public function get_script_depends() {
         return [ 'ba-before-after' ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_images',

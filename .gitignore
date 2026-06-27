@@ -1,1 +1,4 @@
 /node_modules
+.DS_Store
+audit-theme.html
+audit-theme.pdf

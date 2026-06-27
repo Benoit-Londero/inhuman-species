@@ -1,14 +1,14 @@
 <?php 
 
-add_action('elementor/elements/categories_registered', function($elements_manager) {
+add_action( 'elementor/elements/categories_registered', function( $elements_manager ) {
     $elements_manager->add_category(
-        'Inhumans Species',
+        'inhuman-species',
         [
-            'title' => 'Modules Inhumans Species',
+            'title' => 'Modules Inhuman Species',
             'icon'  => 'fa fa-cube',
         ]
     );
-});
+} );
 
 function register_theme_widgets( $widgets_manager ) {
    

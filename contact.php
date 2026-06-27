@@ -1,22 +1,20 @@
-<?php 
-
+<?php
 /* Template Name: Contact */
 
-get_header();?>
-
+get_header();
+?>
 
 <div id="content-contact">
     <div class="container">
-        <h1 class="from-left"><?= the_title();?></h1>
-        <?php 
-            $form = get_field('formulaire','options');
+        <h1 class="from-left"><?php the_title(); ?></h1>
+        <?php
+            $form = get_field( 'formulaire', 'options' );
 
-            if($form):
-                echo '<span class="from-left">'. do_shortcode($form) . '</span>';
+            if ( $form ) :
+                echo '<span class="from-left">' . do_shortcode( $form ) . '</span>';
             endif;
         ?>
     </div>
 </div>
 
-
-<?php get_footer();?>
+<?php get_footer(); ?>

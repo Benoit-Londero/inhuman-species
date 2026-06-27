@@ -15,7 +15,7 @@ class Inhuman_Swiper_Projet_Widget extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Slider Projet', 'ba-theme' );
+        return __( 'Slider Projet', 'inhuman-species' );
     }
 
     public function get_icon() {
@@ -23,18 +23,18 @@ class Inhuman_Swiper_Projet_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'Inhumans Species' ]; // Ou ta catégorie custom Elementor
+        return [ 'inhuman-species' ];
     }
 
-    public function _register_controls() {
-        $this->start_controls_section('content_section', [
-            'label' => __('Contenu', 'textdomain'),
-        ]);
+    protected function register_controls() {
+        $this->start_controls_section( 'content_section', [
+            'label' => __( 'Contenu', 'inhuman-species' ),
+        ] );
 
-        $this->add_control('img_slider', [
-            'label' => __('Galerie', 'textdomain'),
-            'type' => Controls_Manager::GALLERY,
-        ]);
+        $this->add_control( 'img_slider', [
+            'label' => __( 'Galerie', 'inhuman-species' ),
+            'type'  => Controls_Manager::GALLERY,
+        ] );
 
         $this->end_controls_section();
     }
@@ -45,21 +45,22 @@ class Inhuman_Swiper_Projet_Widget extends Widget_Base {
 
         <div class="swiper swiper-project">
             <div class="swiper-wrapper">
-                <?php if (!empty($settings['img_slider'])) :
-                    foreach ($settings['img_slider'] as $img):
-
-                        ?>
+                <?php if ( ! empty( $settings['img_slider'] ) ) :
+                    foreach ( $settings['img_slider'] as $img ) : ?>
                         <div class="swiper-slide">
-                            <a data-fslightbox href="<?= $img['url'];?>">
+                            <a data-fslightbox href="<?php echo esc_url( $img['url'] ); ?>">
                                 <div class="block-ig from-bottom">
-                                    <img src="<?= $img['url'];?>" alt="<?= $img['name'];?>" />
+                                    <img
+                                        src="<?php echo esc_url( $img['url'] ); ?>"
+                                        alt="<?php echo esc_attr( $img['alt'] ?? $img['name'] ?? '' ); ?>"
+                                    />
                                 </div>
                             </a>
                         </div>
                     <?php endforeach;
-                endif;?>
+                endif; ?>
             </div>
         </div>
-    <?php
+        <?php
     }
 }
