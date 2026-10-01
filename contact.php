@@ -1,20 +1,24 @@
 <?php
-/* Template Name: Contact */
+/**
+ * Template Name: Contact
+ *
+ * @package Inhuman_Species
+ */
 
 get_header();
+
+$form = inhuman_species_field( 'formulaire', 'options' );
 ?>
 
 <div id="content-contact">
     <div class="container">
         <h1 class="from-left"><?php the_title(); ?></h1>
-        <?php
-            $form = get_field( 'formulaire', 'options' );
 
-            if ( $form ) :
-                echo '<span class="from-left">' . do_shortcode( $form ) . '</span>';
-            endif;
-        ?>
+        <?php if ( $form ) : ?>
+            <div class="contact-form from-left"><?php echo do_shortcode( wp_kses_post( $form ) ); ?></div>
+        <?php endif; ?>
     </div>
 </div>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

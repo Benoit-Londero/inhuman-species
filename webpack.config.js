@@ -1,5 +1,6 @@
 const path               = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin   = require("css-minimizer-webpack-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -14,9 +15,8 @@ module.exports = {
     clean:    true,
   },
 
-  externals: {
-    // Swiper is loaded via CDN — don't bundle it
-    swiper: "Swiper",
+  optimization: {
+    minimizer: ["...", new CssMinimizerPlugin()],
   },
 
   plugins: [

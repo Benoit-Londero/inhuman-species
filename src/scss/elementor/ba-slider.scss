@@ -1,24 +1,46 @@
 .ba-slider {
+  --ba-position: 50%;
+  --ba-divider-color: #{$light};
+
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  touch-action: pan-y;
+  cursor: ew-resize;
 
   .ba-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     object-fit: cover;
+    user-select: none;
+    pointer-events: none;
   }
+
   .ba-before {
     z-index: 1;
   }
 
   .ba-after {
     z-index: 2;
-    clip-path: inset(0 50% 0 0); /* Modifié en JS */
+    clip-path: inset(0 50% 0 0); // Mis à jour en JS
     transition: clip-path 0.15s ease-out;
+  }
+
+  &--divider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--ba-position);
+    z-index: 3;
+    width: 1px;
+    background-color: var(--ba-divider-color);
+    transform: translateX(-50%);
+    transition: left 0.15s ease-out;
+    pointer-events: none;
   }
 }

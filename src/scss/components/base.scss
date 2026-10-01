@@ -46,3 +46,37 @@ img{
         }
     }
 }
+
+// ── Accessibilité ─────────────────────────────────────────────────────────────
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.skip-link:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 15px 23px;
+    top: 5px;
+    left: 5px;
+    z-index: 100000;
+    background-color: $light;
+    color: $dark;
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 1px solid $gold;
+    outline-offset: 2px;
+}

@@ -14,7 +14,7 @@
     pointer-events: all;
   }
 
-  #menu-menu-principal {
+  .nav-menu {
     text-align: left;
     margin: 0;
     padding: 0;
@@ -118,7 +118,7 @@
 
 .page-id-2011 {
   .menu-sidebar {
-    #menu-menu-principal {
+    .nav-menu {
       li {
         a {
           color: $dark;

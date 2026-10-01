@@ -18,7 +18,7 @@
       color: $gold;
     }
 
-    span {
+    .contact-form {
       width: 100%;
     }
 
@@ -27,12 +27,12 @@
       textarea {
         border: 1px solid $gold;
         background: none;
-        width: calc(100% - 40px);
         padding: 10px 20px;
         margin-bottom: 20px;
         color: #fff;
         outline: none;
         width: 100%;
+        box-sizing: border-box;
 
         &:focus {
           border-width: 2px;

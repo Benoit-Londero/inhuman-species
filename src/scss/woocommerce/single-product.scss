@@ -77,6 +77,7 @@
         }
 
         button {
+          @extend .cta;
           margin-top: 0;
           background-color: $gold;
           color: #fff;

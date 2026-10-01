@@ -33,16 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(el);
         });
     });
-
-    // ── Front-page before/after hover ───────────────────────────────────────
-    const mainContent = document.getElementById('main-content');
-    const imageAfter  = mainContent?.querySelector('.image-after');
-
-    if (mainContent && imageAfter) {
-        mainContent.addEventListener('mousemove', (e) => {
-            const rect       = mainContent.getBoundingClientRect();
-            const percentage = ((e.clientX - rect.left) / rect.width) * 100;
-            imageAfter.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-        });
-    }
 });

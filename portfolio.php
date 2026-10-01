@@ -1,48 +1,47 @@
 <?php
-/* Template Name: Portfolio */
+/**
+ * Template Name: Portfolio
+ *
+ * @package Inhuman_Species
+ */
 
-$bg = get_field('background-slider');
+inhuman_species_enqueue_swiper();
+
+$background = inhuman_species_field( 'background-slider' );
+$slides     = array();
+
+if ( function_exists( 'have_rows' ) && have_rows( 'work' ) ) {
+    while ( have_rows( 'work' ) ) {
+        the_row();
+
+        $image = inhuman_species_acf_image( get_sub_field( 'image' ) );
+        $cta   = get_sub_field( 'cta' );
+
+        if ( ! $image['id'] && ! $image['url'] ) {
+            continue;
+        }
+
+        $slides[] = array(
+            'image'       => $image,
+            'description' => get_sub_field( 'description' ),
+            'cta'         => array(
+                'url'         => $cta['url'] ?? '',
+                'label'       => $cta['title'] ?? '',
+                'is_external' => '_blank' === ( $cta['target'] ?? '' ),
+            ),
+        );
+    }
+}
 
 get_header();
-?>
 
-<div class="portfolio" <?php if($bg): ?> style="background-image:url('<?php echo $bg['url'];?>);" <?php endif;?>>
-    <div class="swiper">
-        <div class="swiper-portfolio">
-            <div class="swiper-wrapper">
-                <?php
-                
-                if(have_rows('work')):
-                    while(have_rows('work')): the_row();
-                        $img = get_sub_field('image');
-                        $desc = get_sub_field('description');
-                        $cta = get_sub_field('cta');
+get_template_part( 'template-parts/slider-fullscreen', null, array(
+    'slides'     => $slides,
+    'background' => $background['url'] ?? '',
+    'options'    => array(
+        'speed' => 800,
+        'loop'  => true,
+    ),
+) );
 
-                        if($img):?>
-                            <div class="swiper-slide">
-                                <div class="description from-left" data-swiper-parallax="-300" data-swiper-parallax-duration="300" style="z-index:1000;">
-                                    <?php if($desc): echo $desc; endif;?>
-
-                                    <?php if($cta): echo '<a href="'.$cta['url'].'" class="cta from-left">'.$cta['title'].'</a>'; endif;?>
-                                </div>
-
-                                <div class="block-img" data-swiper-parallax="0">
-                                    <img src="<?php echo $img['url'];?>" alt="<?php echo $img['name'];?>" class="slide"/>
-                                </div>
-                            </div>
-                        <?php endif;
-                    endwhile;
-                endif;?>
-            </div>
-
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </div>
-</div>
-
-<?php get_footer();?>
+get_footer();

@@ -103,3 +103,14 @@
     bottom: 3px;
   }
 }
+
+// Dans l'éditeur Elementor, les widgets sont re-rendus sans passer par l'observer :
+// on les affiche directement pour qu'ils restent visibles pendant l'édition.
+.elementor-editor-active {
+  .from-bottom,
+  .from-left,
+  .from-right,
+  .from-top {
+    opacity: 1;
+  }
+}

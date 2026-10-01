@@ -2,20 +2,13 @@
 /**
  * The template for displaying product content in the single-product.php template
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/content-single-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
+ * Override Inhuman Species : mise en page épurée (image, titre, prix, extrait,
+ * ajout au panier, onglets) sans notes, méta, partage ni produits liés.
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 3.6.0
  */
-
-use Automattic\WooCommerce\Enums\ProductType;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -36,19 +29,24 @@ if ( post_password_required() ) {
 <div class="content-product">
 	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-		<?php include 'single-product/product-image.php';?>
+		<?php woocommerce_show_product_images(); ?>
+
 		<div class="summary entry-summary">
-			<?php 
-				include 'single-product/title.php';
-				include 'single-product/price.php';
-				include 'single-product/short-description.php';
-				include 'single-product/add-to-cart/simple.php'
+			<?php
+			woocommerce_template_single_title();
+			woocommerce_template_single_price();
+			woocommerce_template_single_excerpt();
+			woocommerce_template_single_add_to_cart(); // Formulaire adapté au type de produit (simple, variable…).
+
+			if ( isset( WC()->structured_data ) ) {
+				WC()->structured_data->generate_product_data(); // Données structurées produit (SEO).
+			}
 			?>
 		</div>
 	</div>
 
 	<div class="product-tabs-related">
-		<?php include 'single-product/tabs/tabs.php';?>
+		<?php woocommerce_output_product_data_tabs(); ?>
 	</div>
 </div>
 

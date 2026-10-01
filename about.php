@@ -1,29 +1,31 @@
 <?php
-/* Template Name: A propos */
+/**
+ * Template Name: A propos
+ *
+ * @package Inhuman_Species
+ */
 
 get_header();
 
-$descr = get_field( 'description' );
-$photo = get_field( 'photo_about' );
+$descr = inhuman_species_field( 'description' );
+$photo = inhuman_species_acf_image( inhuman_species_field( 'photo_about' ) );
 ?>
 
 <div id="content-contact">
     <div class="container columns">
         <div class="col-g">
-            <?php if ( $photo ) : ?>
+            <?php if ( $photo['id'] || $photo['url'] ) : ?>
                 <div class="block-img from-bottom">
-                    <img
-                        src="<?php echo esc_url( $photo['url'] ); ?>"
-                        alt="<?php echo esc_attr( $photo['alt'] ?? $photo['name'] ?? '' ); ?>"
-                    />
+                    <?php inhuman_species_image( $photo['id'], $photo['url'] ); ?>
                 </div>
             <?php endif; ?>
         </div>
 
         <div class="col-d from-bottom">
-            <?php if ( $descr ) : echo wp_kses_post( $descr ); endif; ?>
+            <?php echo wp_kses_post( (string) $descr ); ?>
         </div>
     </div>
 </div>
 
-<?php get_footer(); ?>
+<?php
+get_footer();
