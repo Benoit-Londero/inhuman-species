@@ -24,7 +24,7 @@ $logo        = inhuman_species_field( 'logo', 'options' );
 <?php endif; ?>
 
 <div
-    class="menu-<?php echo esc_attr( $variant ); ?>"
+    class="menu-<?php echo esc_attr( $variant ); ?> site-navigation"
     <?php if ( $is_megamenu ) : ?>id="megamenu" aria-hidden="true"<?php endif; ?>
 >
     <div class="logo">

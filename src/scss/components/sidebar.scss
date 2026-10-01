@@ -6,7 +6,18 @@
   width: 200px;
   z-index: 10;
   padding-top: 50px;
+  // La colonne laisse passer les clics vers le contenu en dessous (slider, avant/après)…
   pointer-events: none;
+
+  // …mais tout élément interactif reste cliquable, quel que soit le balisage
+  // (menu du thème ou widget "Navigation Menu" d'Elementor Header & Footer Builder).
+  a,
+  button,
+  input,
+  [role="button"],
+  [tabindex] {
+    pointer-events: auto;
+  }
 
   .logo {
     width: 250px;

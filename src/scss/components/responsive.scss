@@ -1,6 +1,8 @@
-// Tablette & mobile : la sidebar laisse place au mégamenu (bouton burger).
+// Tablette & mobile : la sidebar du thème laisse place au mégamenu (bouton burger).
+// Ciblage via .site-navigation uniquement : un header construit avec Elementor
+// (classe .menu-sidebar ajoutée dans l'éditeur) gère son propre responsive.
 @media screen and (max-width: 1024px) {
-  .menu-sidebar {
+  .menu-sidebar.site-navigation {
     display: none;
   }
 
